@@ -3,7 +3,7 @@
 This [Links](https://links-lang.org) prototype provides an interface to curate the weekly data available from 
 *[National Records of Scotland](https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/vital-events/general-publications/weekly-and-monthly-data-on-births-and-deaths/deaths-involving-coronavirus-covid-19-in-scotland/archive)*. 
 
-It allows for the uploading of individual CSV files, adds new data to the database, and indicates when there are new values for existing data. It uses the [temporal features of Links](https://github.com/links-lang/links/wiki/Temporal-Databases) to provide valid-time information about fatality counts. The database structure is documented in the file `uploadData.links`.
+It allows for the uploading of individual CSV files, adds new data to the database, and indicates when there are new values for existing data. It uses the [temporal features of Links](https://github.com/links-lang/links/wiki/Temporal-Databases) to provide valid-time information about fatality counts. The use of time is documented in the file `uploadData.links`.
 
 It also displays the data, as well as changes to the data, at three levels.
 * Individual counts (specified by the week and subcategory that the data applies to)
