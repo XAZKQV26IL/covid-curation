@@ -35,44 +35,21 @@ typename Chart = (title: String, xLabel: String, yLabel: String, data: [(String,
 
 #============= FUNS
 
-  fun getSubcatsCurrent_mod (c) server {
-    var sc = query nested {for (x <-- subcategory) 
+  fun getSubcatsCurrent (c) server {
+    query nested {for (x <-- subcategory) 
       where (x.cat==c)
-        [(subcat_name=x.subcat_name,cat=x.cat,results= 
-          for (y <- vtCurrent(covid_data)) for (z <-t- week)    
-            where (y.subcat==x.subcat &&
-                   ttData(z).all_zero==false && 
-                   ttData(z).weekdate==y.weekdate &&
-                   ttTo(z)==forever)
-              [(count=y.count,weekdate=y.weekdate
-              )]
-         )]};
-     # sort by week
-     for (x <- sc)
-      [(x with results = 
-        for (y <- x.results) orderby (y.weekdate) [y])]
+        [(subcat_name=x.subcat_name,cat=x.cat,
+          results= 
+            for (y <- vtCurrent(covid_data)) 
+              for (z <- ttCurrent(week))    
+                where (y.subcat==x.subcat &&
+                       z.all_zero==false && 
+                       z.weekdate==y.weekdate)
+                  orderby (y.weekdate)
+                    [(count=y.count,weekdate=y.weekdate)]
+         )]}
   }
  
-
-  fun getSubcatsCurrent (c) server {
-    var sc = query nested {for (x <-- subcategory) 
-      where (x.cat==c)
-        [(subcat_name=x.subcat_name,cat=x.cat,results= 
-          for (y <-v- covid_data) for (z <-t- week)    
-            where (vtData(y).subcat==x.subcat && vtTo(y)==forever &&
-                   ttData(z).all_zero==false && 
-                   ttData(z).weekdate==vtData(y).weekdate &&
-                   ttTo(z)==forever)
-              [(count=vtData(y).count,weekdate=vtData(y).weekdate
-              )]
-         )]};
-     # sort by week
-     for (x <- sc)
-      [(x with results = 
-        for (y <- x.results) orderby (y.weekdate) [y])]
-  }
-
-
 #============= UPDT
 
   sig updt : (Message, Model) {}~> Model
@@ -166,7 +143,7 @@ fun showChartWidget() {
           tr(a0,MvuHTML.concatMap(renderResRowItem, x))
         }
 
-        var sc = getSubcatsCurrent_mod(cat);
+        var sc = getSubcatsCurrent(cat);
         var res = for (x <- sc) genTableData(x);
         # assumptions are made that every category in a group has a value
         # for every week and these are ordered

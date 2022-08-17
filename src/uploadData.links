@@ -12,7 +12,6 @@
 #   recording of weeks info: works for batch updates, but not so well for individual updates
 
 # to be investigated
-#   efficiency of looking for differences from existing data: to be investigated further
 #   load sequence week 14, 30, 44, 53 sometimes files with csv file error on week 53, why?
 #     after reloading the app, week 53 loads OK, doesn't appear to be skipping continue? 
 
