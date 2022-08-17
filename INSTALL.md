@@ -1,6 +1,6 @@
 # Installation
 
-First, install Links using opam. Since the prototype requires a PostgreSQL installation, the following command is used.
+First, install Links using *[opam](https://opam.ocaml.org)*. Since the prototype requires a *[PostgreSQL](https://www.postgresql.org)* installation, the following command is used.
 ```
 $ opam install links-postgresql
 ```
@@ -11,7 +11,7 @@ Second, a PostgreSQL database is created with the command
 $ psql -c "CREATE DATABASE covid-curation;" 
 $ psql -d covid-curation -f ccSetup.sql 
 ```
-Next, the file config.0.9.7 is edited to replace `<username>` and `<password>` with the appropriate PostgreSQL username and password respectively. It may also be necessary to modify the PostgreSQL port from 5432, depending on the setup.
+Next, the file `config.0.9.7` is edited to replace `<username>` and `<password>` with the appropriate PostgreSQL username and password respectively. It may also be necessary to modify the PostgreSQL port from 5432, depending on the setup.
 For more information about database setup, see **[points 4 to 6 here](https://github.com/links-lang/links/wiki/Database-setup)**
 
 Once these steps are completed, the application can be run using
