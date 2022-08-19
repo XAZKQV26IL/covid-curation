@@ -28,7 +28,7 @@ The database relation that stores the COVID-19 data is a valid-time table, and t
 * **Sequenced update:** [`uploadData.links: lines 167-174`](https://github.com/XAZKQV26IL/covid-curation/blob/260f2535e8f0e1dc88c4800393584b89024cd670/src/uploadData.links#L167)
 * **Current query:** [`viewData.links: lines 83-51`](https://github.com/XAZKQV26IL/covid-curation/blob/260f2535e8f0e1dc88c4800393584b89024cd670/src/viewData.links#L38)
 * **Nested selfjoin:** [`provQuery.links lines 96-108`](https://github.com/XAZKQV26IL/covid-curation/blob/260f2535e8f0e1dc88c4800393584b89024cd670/src/provQuery.links#L96)
-* **Nonsequenced delete:** [`resetDB.links`](https://github.com/XAZKQV26IL/covid-curation/blob/682e27cc62cb5958e0e4c7abb61a6e0c872587d7/src/resetDB.links#L17)
+* **Nonsequenced delete:** [`resetDB.links: line 17`](https://github.com/XAZKQV26IL/covid-curation/blob/682e27cc62cb5958e0e4c7abb61a6e0c872587d7/src/resetDB.links#L17)
 
 ### User interface
 
