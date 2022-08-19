@@ -45,3 +45,5 @@ model depending on the message. After this, the page is refreshed.
 Typically, the database interactions occur when the initial model
 is defined, and when the update function calls the functions it
 needs for modifying the model, leading to a separation of concerns.
+
+![Screenshot](https://github.com/XAZKQV26IL/covid-curation/blob/99ee55569e20d009042b5197523927ec8e7fb6e9/src/images/screenshot1.png)
