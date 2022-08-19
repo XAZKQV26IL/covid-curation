@@ -3,7 +3,7 @@
 This [Links](https://links-lang.org) prototype provides an interface to curate the weekly data available from 
 *[National Records of Scotland](https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/vital-events/general-publications/weekly-and-monthly-data-on-births-and-deaths/deaths-involving-coronavirus-covid-19-in-scotland/archive)*. 
 
-It allows for the uploading of individual CSV files, adds new data to the database, and indicates when there are new values for existing data. It uses the [temporal features of Links](https://github.com/links-lang/links/wiki/Temporal-Databases) to provide valid-time information about fatality counts. The use of time is documented in the file `uploadData.links`.
+It allows for the uploading of individual CSV files, adds new data to the database, and indicates when there are new values for existing data. It uses the [temporal features of Links](https://github.com/links-lang/links/wiki/Temporal-Databases) to provide valid-time information about fatality counts. 
 
 It also displays the data, as well as changes to the data, at three levels.
 * Individual counts (specified by the week and subcategory that the data applies to)
@@ -19,6 +19,17 @@ Note that this is a prototype hence some functionality has not
 been implemented and not all buttons in the interface will respond.
 The CSV file uploading makes the assumption that uploads will occur in the order
 the files were originally released, and unexpected behaviour may occur for a different ordering of uploads. Additionally, the CSV files for upload which can be found in the `data` directory have been modified, and uploading the CSV files from the original site will result in errors.
+
+### Temporal database usage
+
+The use of time is documented in the file [`uploadData.links`](src/uploadData.links). Examples of temporal feature usage can be found in the following files.
+
+* **Sequenced insert:** [`uploadData.links: lines 100-111`](https://github.com/XAZKQV26IL/covid-curation/blob/260f2535e8f0e1dc88c4800393584b89024cd670/src/uploadData.links#L100)
+* **Sequenced update:** [`uploadData.links: lines 167-174`](https://github.com/XAZKQV26IL/covid-curation/blob/260f2535e8f0e1dc88c4800393584b89024cd670/src/uploadData.links#L167)
+* **Current query:** [`viewData.links: lines 83-51`](https://github.com/XAZKQV26IL/covid-curation/blob/260f2535e8f0e1dc88c4800393584b89024cd670/src/viewData.links#L38)
+* **Nested selfjoin:** [`provQuery.links lines 96-108`](https://github.com/XAZKQV26IL/covid-curation/blob/260f2535e8f0e1dc88c4800393584b89024cd670/src/provQuery.links#L96)
+
+### User interface
 
 The interface is built using the [Links MVU library](https://github.com/links-lang/links/wiki/Model-View-Update-(Elm-Architecture)) which utilises
 *[Bootstrap](https://getbootstrap.com)* and which is based on the Model-Update-View
