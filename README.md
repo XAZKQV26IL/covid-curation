@@ -30,6 +30,8 @@ The database relation that stores the COVID-19 data is a valid-time table, and t
 * **Nested selfjoin:** [`provQuery.links lines 96-108`](https://github.com/XAZKQV26IL/covid-curation/blob/260f2535e8f0e1dc88c4800393584b89024cd670/src/provQuery.links#L96)
 * **Nonsequenced delete:** [`resetDB.links: line 17`](https://github.com/XAZKQV26IL/covid-curation/blob/682e27cc62cb5958e0e4c7abb61a6e0c872587d7/src/resetDB.links#L17)
 
+![Current schema](https://github.com/XAZKQV26IL/covid-curation/blob/9a95a100f755d615f35a72d9a30c0422bc88194c/src/images/currentschema.png)
+
 ### User interface
 
 The interface is built using the [Links MVU library](https://github.com/links-lang/links/wiki/Model-View-Update-(Elm-Architecture)) which utilises
